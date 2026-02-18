@@ -2,3 +2,5 @@
 
 This repository has the starter code for CIS-92. 
 
+Author: Mitzi Ferrer
+
