@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: django
+data:
+  PORT: "8080" 
+  STUDENT_NAME: "Mitzi Ferrer"
+  SITE_NAME: "www.mitziferrer.com"
+  DATA_DIR: "/data"
+  DEBUG: "1"
