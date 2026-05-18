@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: django
+  labels:
+    function: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      function: app
+  template:
+    metadata:
+      labels:
+        function: app
+    spec:
+      containers:
+      - name: django
+        image: ghcr.io/mitzijferrer/cis-92:main
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: 1000m 
+            memory: 1024Mi
+            ephemeral-storage: 10Mi
+          limits:
+            cpu: 1000m 
+            memory: 1024Mi
+            ephemeral-storage: 10Mi
+        envFrom:
+        - configMapRef:
+            name: django
+        - secretRef:
+            name: django
+      securityContext:
+        fsGroup: 1000
+  
